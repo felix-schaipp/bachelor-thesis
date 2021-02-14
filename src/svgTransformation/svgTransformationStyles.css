@@ -1,0 +1,32 @@
+/*
+    custom design for the slider track
+ */
+.custom-slider .track {
+    -fx-background-color: #E6E6E6;
+    -fx-padding: 5px;
+}
+
+/*
+    custom design for the slider knob
+ */
+.custom-slider .thumb {
+    -fx-background-color: #4285f4;
+}
+
+/*
+    standard button design
+ */
+.button {
+    -fx-background-color: #4285f4;
+}
+
+/*
+    showing a hover effect when mouse is over button
+ */
+.button:hover {
+    -fx-cursor: hand;
+}
+
+.svgImageButton {
+    -fx-background-color: transparent;
+}

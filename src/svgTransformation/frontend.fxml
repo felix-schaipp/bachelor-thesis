@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+
+<Pane id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0" prefWidth="1056.0" style="-fx-background-color: #F5F6F8;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="svgTransformation.Controller">
+   <children>
+      <GridPane layoutX="15.0" layoutY="21.0" prefHeight="127.0" prefWidth="850.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5 5 5 5;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="lblUpload" alignment="CENTER" text="SVG Points" textFill="#212529" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+               <font>
+                  <Font name="Arial Bold" size="22.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </Label>
+            <Button fx:id="btnUpload" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#fileUpload" text="Choose SVG" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="60.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <padding>
+                  <Insets bottom="8.0" left="15.0" right="15.0" top="8.0" />
+               </padding>
+            </Button>
+            <Label fx:id="passermarken" alignment="CENTER_RIGHT" text="Printing marks:" textFill="#212529" visible="false" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets left="85.0" top="24.0" />
+               </GridPane.margin>
+            </Label>
+            <Button fx:id="svgImageButton" mnemonicParsing="false" styleClass="svgImageButton">
+               <GridPane.margin>
+                  <Insets left="650.0" />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="15.0" left="10.0" right="10.0" top="15.0" />
+               </padding>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+         </padding>
+      </GridPane>
+      <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="180.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="850.0" spacing="5.0" style="-fx-background-color: #ffffff; -fx-background-radius: 5 5 5 5;">
+         <children>
+            <ImageView fx:id="convertedImage" fitHeight="253.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="circleImage" fitHeight="251.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+         </padding>
+      </HBox>
+      <VBox layoutX="897.0" layoutY="180.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="297.0" prefWidth="145.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5 5 5 5;">
+         <children>
+            <Label text="Upper Threshhold" textFill="#212529">
+               <VBox.margin>
+                  <Insets bottom="6.0" top="6.0" />
+               </VBox.margin>
+            </Label>
+            <Slider id="slider1" fx:id="param1" blockIncrement="5" max="400.0" styleClass="custom-slider" value="305.0" />
+            <Label text="Center Detection" textFill="#212529">
+               <VBox.margin>
+                  <Insets bottom="6.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Slider id="slider2" fx:id="param2" blockIncrement="1" max="50.0" styleClass="custom-slider" value="30" />
+            <GridPane prefHeight="98.0" prefWidth="111.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="35.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.0" minWidth="10.0" prefWidth="35.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.0" minWidth="10.0" prefWidth="35.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Button fx:id="upButton" mnemonicParsing="false" onMousePressed="#moveUp" onMouseReleased="#stopXYTable" text="↑" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Button fx:id="downButton" mnemonicParsing="false" onMousePressed="#moveDown" onMouseReleased="#stopXYTable" text="↓" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <Button fx:id="rightButton" mnemonicParsing="false" onMousePressed="#moveRight" onMouseReleased="#stopXYTable" text="→" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <Button fx:id="leftButton" mnemonicParsing="false" onMousePressed="#moveLeft" onMouseReleased="#stopXYTable" text="←" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+               </children>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </GridPane>
+            <Button fx:id="cameraButton" alignment="CENTER" mnemonicParsing="false" onAction="#startCamera" prefHeight="33.0" prefWidth="124.0" text="Start Camera" textAlignment="CENTER" textFill="WHITE">
+               <padding>
+                  <Insets bottom="8.0" left="15.0" right="15.0" top="8.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+         </padding>
+      </VBox>
+      <HBox layoutX="15.0" layoutY="439.0" prefHeight="39.0" prefWidth="850.0" style="-fx-background-color: #ffffff; -fx-background-radius: 5 5 5 5;">
+         <children>
+            <Label fx:id="paramValues" alignment="CENTER" contentDisplay="CENTER" text="Label" textFill="#212529" visible="false" />
+            <Label fx:id="centerCoordinates" alignment="CENTER_RIGHT" text="Label" textFill="#212529" visible="false">
+               <HBox.margin>
+                  <Insets left="40.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+         </padding>
+      </HBox>
+      <Pane layoutX="898.0" layoutY="21.0" prefHeight="127.0" prefWidth="145.0" style="-fx-background-color: #ffffff; -fx-background-radius: 5 5 5 5;">
+         <children>
+            <Button fx:id="connectTableButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#connectToTable" prefHeight="27.0" prefWidth="115.0" text="Connect to table" textFill="WHITE">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Button>
+            <Button fx:id="startTestButton" layoutX="14.0" layoutY="72.0" mnemonicParsing="false" onAction="#startTest" prefHeight="27.0" prefWidth="115.0" text="Start Test" textFill="WHITE" />
+            <Label fx:id="connectionLabel" layoutX="15.0" layoutY="48.0" prefHeight="17.0" prefWidth="115.0" text="Connection " visible="false" />
+            <Label fx:id="testingLabel" alignment="CENTER" layoutX="15.0" layoutY="105.0" prefHeight="17.0" prefWidth="115.0" text="Testing" textFill="WHITE" visible="false" />
+         </children>
+      </Pane>
+      <Pane layoutX="898.0" layoutY="510.0" prefHeight="127.0" prefWidth="145.0" style="-fx-background-color: #ffffff; -fx-background-radius: 5 5 5 5;">
+         <children>
+            <Button fx:id="saveResultButton" layoutX="29.0" layoutY="50.0" mnemonicParsing="false" text="Save result" textFill="WHITE" />
+         </children>
+      </Pane>
+   </children>
+</Pane>
